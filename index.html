@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoriChessReview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <div class="logo">
+        <span class="logo-icon">♜</span>
+        <span class="logo-text">NoriChessReview</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="coach-selector">
+        <label for="coachSelect">Coach:</label>
+        <select id="coachSelect"></select>
+        <div id="coachInfo" class="coach-info-mini"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="board-area">
+      <div class="board-wrapper">
+        <div id="chessboard" class="chessboard"></div>
+        <div id="moveOverlay" class="move-overlay"></div>
+      </div>
+      <div class="board-controls">
+        <button id="btnFirst" title="Start">⏮</button>
+        <button id="btnPrev" title="Previous">◀</button>
+        <button id="btnNext" title="Next">▶</button>
+        <button id="btnLast" title="End">⏭</button>
+      </div>
+      <div class="eval-display">
+        <div class="eval-bar-track">
+          <div id="evalBarWhite" class="eval-bar-white"></div>
+        </div>
+        <div id="evalText" class="eval-text">0.0</div>
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <div class="panel-section">
+        <div class="section-header">
+          <h2>Moves</h2>
+          <span id="analysisStatus" class="status-badge ready">Ready</span>
+        </div>
+        <div id="moveList" class="move-list"></div>
+      </div>
+
+      <div class="panel-section coach-section">
+        <div class="coach-card">
+          <img id="coachAvatar" class="coach-avatar-img" src="" alt="Coach">
+          <div class="coach-details">
+            <h3 id="coachName">Select a Coach</h3>
+            <p id="coachStyle" class="coach-style">--</p>
+          </div>
+        </div>
+        <div class="coach-speech">
+          <strong id="coachSignature" class="signature"></strong>
+          <p id="coachExplanation" class="explanation">Paste a PGN and click Analyze to begin.</p>
+        </div>
+      </div>
+
+      <div class="panel-section best-move-section">
+        <h3>Stockfish Best Move</h3>
+        <div id="bestMoveDisplay" class="best-move-display">--</div>
+        <div id="depthDisplay" class="depth-display">Depth: --</div>
+      </div>
+    </div>
+  </main>
+
+  <section class="pgn-section">
+    <div class="pgn-header">
+      <h3>PGN Input</h3>
+      <button id="btnAnalyze" class="btn-primary">Analyze Game</button>
+    </div>
+    <textarea id="pgnInput" placeholder="Paste your chess game PGN here...&#10;&#10;Example:&#10;[Event "Friendly Game"]&#10;[White "Player1"]&#10;[Black "Player2"]&#10;&#10;1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 ..."></textarea>
+    <div class="pgn-actions">
+      <button id="btnLoadSample" class="btn-secondary">Load Sample Game</button>
+      <button id="btnClear" class="btn-secondary">Clear</button>
+    </div>
+  </section>
+
+  <section class="ad-section">
+    <p class="ad-note">Ads help keep NoriChessReview free and running</p>
+    <div class="ad-banner">
+      <div class="ad-card">
+        <div class="ad-badge">Ad</div>
+        <h4>Learn Chess Faster</h4>
+        <p>Premium video lessons from Grandmasters. Master openings, tactics, and endgames.</p>
+        <button class="ad-btn">Learn More</button>
+      </div>
+      <div class="ad-card">
+        <div class="ad-badge">Ad</div>
+        <h4>Upgrade to Pro Analysis</h4>
+        <p>Unlimited depth, cloud engine, and personalized training plans.</p>
+        <button class="ad-btn">Upgrade</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>NoriChessReview &copy; 2026. Built for chess improvement.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
