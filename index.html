@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NoriChessReview</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-left">
+    <div class="logo-block">
+      <span class="logo-icon">♞</span>
+      <div class="logo-text">
+        <span class="logo-main">NoriChess</span><span class="logo-accent">Review</span>
+        <span class="logo-sub">AI-Powered Game Analysis</span>
+      </div>
+    </div>
+  </div>
+  <div class="header-center">
+    <div class="engine-status">
+      <span class="engine-dot" id="engineDot"></span>
+      <span id="engineStatusText">Loading Engine...</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="depth-control">
+      <label>Depth</label>
+      <input type="range" id="depthSlider" min="8" max="20" value="14" />
+      <span id="depthVal">14</span>
+    </div>
+  </div>
+</header>
+
+<!-- COACH SELECTOR BAR -->
+<section class="coach-bar">
+  <div class="coach-bar-label">SELECT COACH</div>
+  <div class="coach-cards" id="coachCards"></div>
+  <div class="active-coach-info" id="activeCoachInfo"></div>
+</section>
+
+<!-- MAIN LAYOUT -->
+<main class="main-layout">
+
+  <!-- LEFT: BOARD PANEL -->
+  <section class="board-panel">
+    <div class="board-meta">
+      <div class="player-tag black-player">
+        <span class="player-color-dot black"></span>
+        <span id="blackPlayerName">Black</span>
+        <span class="player-elo" id="blackElo"></span>
+      </div>
+    </div>
+    <div class="board-wrap">
+      <div class="board-files-top" id="filesTop"></div>
+      <div class="board-ranks-left" id="ranksLeft"></div>
+      <div class="chessboard" id="chessboard"></div>
+      <div class="board-ranks-right" id="ranksRight"></div>
+    </div>
+    <div class="board-meta">
+      <div class="player-tag white-player">
+        <span class="player-color-dot white"></span>
+        <span id="whitePlayerName">White</span>
+        <span class="player-elo" id="whiteElo"></span>
+      </div>
+    </div>
+
+    <!-- Board Controls -->
+    <div class="board-controls">
+      <button class="ctrl-btn" id="btnFirst" title="First move">⏮</button>
+      <button class="ctrl-btn" id="btnPrev" title="Previous move">◀</button>
+      <button class="ctrl-btn" id="btnPlay" title="Play through">▶</button>
+      <button class="ctrl-btn" id="btnNext" title="Next move">▶</button>
+      <button class="ctrl-btn" id="btnLast" title="Last move">⏭</button>
+      <button class="ctrl-btn flip-btn" id="btnFlip" title="Flip board">⇅</button>
+    </div>
+
+    <!-- Eval Bar -->
+    <div class="eval-section">
+      <div class="eval-bar-wrap">
+        <div class="eval-bar" id="evalBar">
+          <div class="eval-fill" id="evalFill"></div>
+          <span class="eval-label" id="evalLabel">0.0</span>
+        </div>
+      </div>
+      <div class="best-move-display" id="bestMoveDisplay">
+        <span class="bm-label">Best Move:</span>
+        <span class="bm-move" id="bestMoveText">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT: ANALYSIS PANEL -->
+  <section class="analysis-panel">
+
+    <!-- Tabs -->
+    <div class="panel-tabs">
+      <button class="tab-btn active" data-tab="moves">Move List</button>
+      <button class="tab-btn" data-tab="summary">Summary</button>
+    </div>
+
+    <!-- Move List Tab -->
+    <div class="tab-content active" id="tab-moves">
+      <div class="move-list-header">
+        <span>Move</span>
+        <span>Score</span>
+        <span>Δ</span>
+        <span>Class</span>
+      </div>
+      <div class="move-list" id="moveList">
+        <div class="move-list-empty">
+          <span class="empty-icon">♟</span>
+          <p>Paste a PGN below and click <strong>Analyze Game</strong> to start.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Tab -->
+    <div class="tab-content" id="tab-summary">
+      <div class="summary-content" id="summaryContent">
+        <div class="summary-empty">Analyze a game to see the summary.</div>
+      </div>
+    </div>
+
+    <!-- Coach Explanation Box -->
+    <div class="coach-explanation" id="coachExplanation">
+      <div class="coach-exp-header">
+        <img class="coach-exp-avatar" id="coachExpAvatar" src="" alt="" />
+        <span class="coach-exp-name" id="coachExpName">Select a move</span>
+      </div>
+      <div class="coach-exp-text" id="coachExpText">Click any move in the list to get a coach explanation.</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- PGN INPUT -->
+<section class="pgn-section">
+  <div class="pgn-label">
+    <span class="pgn-icon">📋</span> PASTE PGN GAME
+  </div>
+  <div class="pgn-input-row">
+    <textarea id="pgnInput" placeholder='Paste your PGN here...
+Example: 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 ...'></textarea>
+    <div class="pgn-buttons">
+      <button class="btn-analyze" id="btnAnalyze">
+        <span>⚡</span> Analyze Game
+      </button>
+      <button class="btn-sample" id="btnSample">
+        Load Sample
+      </button>
+      <button class="btn-clear" id="btnClear">
+        Clear
+      </button>
+    </div>
+  </div>
+  <div class="analysis-progress" id="analysisProgress" style="display:none;">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-text" id="progressText">Analyzing move 0 / 0...</span>
+  </div>
+</section>
+
+<!-- ADS SECTION -->
+<section class="ads-section">
+  <p class="ads-message">Ads help keep NoriChessReview free and running</p>
+  <div class="ads-row">
+    <div class="ad-card">
+      <div class="ad-badge">AD</div>
+      <div class="ad-icon">♛</div>
+      <div class="ad-content">
+        <div class="ad-title">Learn Chess Faster with Premium Lessons</div>
+        <div class="ad-desc">Get personalized coaching from certified masters. 1000+ students improved in 30 days.</div>
+        <button class="ad-btn">Learn More →</button>
+      </div>
+    </div>
+    <div class="ad-card featured">
+      <div class="ad-badge">AD</div>
+      <div class="ad-icon">🔥</div>
+      <div class="ad-content">
+        <div class="ad-title">Upgrade to Pro Analysis Mode</div>
+        <div class="ad-desc">Unlimited depth analysis, opening book integration, and personalized reports.</div>
+        <button class="ad-btn">Try Pro Free →</button>
+      </div>
+    </div>
+    <div class="ad-card">
+      <div class="ad-badge">AD</div>
+      <div class="ad-icon">📖</div>
+      <div class="ad-content">
+        <div class="ad-title">Chess Tactics Trainer — 5000+ Puzzles</div>
+        <div class="ad-desc">Train your tactical vision with puzzles rated by difficulty. Free to start!</div>
+        <button class="ad-btn">Start Training →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <span class="footer-logo">♞ NoriChessReview</span>
+    <span class="footer-tagline">Powered by Stockfish AI Engine</span>
+  </div>
+  <div class="footer-right">
+    <span>© 2025 NoriChessReview</span>
+  </div>
+</footer>
+
+<!-- Tooltip -->
+<div class="tooltip" id="tooltip"></div>
+
+<script src="script.js"></script>
+</body>
+  </html>
