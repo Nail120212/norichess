@@ -1,0 +1,89 @@
+{
+  "coaches": [
+    {
+      "name": "DevZel",
+      "logo": "assets/coach/images/devzel.png",
+      "style": "calm analytical",
+      "signature": "DevZel speaking",
+      "color": "#4fc3f7",
+      "emoji": "🧠",
+      "bio": "Analytical master. Breaks down complex positions with cold precision.",
+      "phrases": {
+        "brilliant": ["A deeply calculated move that most players would miss.", "The engine agrees — this was the only correct path forward.", "Exceptional calculation. This changes the entire evaluation."],
+        "best": ["The objectively strongest continuation here.", "Precise play. You found the engine's top choice.", "Clean and accurate. Exactly what the position demanded."],
+        "good": ["A solid choice. Not the absolute best, but well within reason.", "This maintains the balance. A logical decision.", "Good enough. You kept your advantage intact."],
+        "inaccuracy": ["A slight imprecision. The evaluation shifted a bit here.", "Not the cleanest move. A more accurate option existed.", "This loses some of the edge you had built up."],
+        "mistake": ["This is where the game started to slip.", "A concrete error. The opponent now has real chances.", "The position is now objectively difficult to defend."],
+        "blunder": ["A critical error that changes the game fundamentally.", "This move drops significant material or loses the game.", "The engine shows a decisive advantage for the opponent now."]
+      }
+    },
+    {
+      "name": "Kimmy",
+      "logo": "assets/coach/images/kimmy.png",
+      "style": "friendly beginner",
+      "signature": "Kimmy says",
+      "color": "#f48fb1",
+      "emoji": "🌸",
+      "bio": "Friendly guide for beginners. Makes chess fun and approachable!",
+      "phrases": {
+        "brilliant": ["Wow, amazing move! You really surprised everyone! 🌟", "That's like a magic trick! Super clever thinking!", "Oh my gosh, I didn't even see that coming! Brilliant!"],
+        "best": ["Great job! You picked the very best move!", "Perfect! The computer totally agrees with you!", "Yay! You found exactly the right move!"],
+        "good": ["Nice move! That was a smart choice!", "Good thinking! You kept your pieces safe.", "Well done! You're playing really well!"],
+        "inaccuracy": ["Oops, a tiny slip! But don't worry, you're still okay!", "Almost perfect! There was a slightly better option though.", "That's okay! Just a small mistake. Keep going!"],
+        "mistake": ["Oh no, that one hurt a little! The other player got some advantage.", "Hmm, that wasn't quite right. Let's learn from it!", "A bit of a stumble there! But you can come back!"],
+        "blunder": ["Uh oh! That was a big oopsie! The other player is really happy now!", "Oh dear! That move gave away too much!", "Eek! That's going to make things very hard now!"]
+      }
+    },
+    {
+      "name": "Digger",
+      "logo": "assets/coach/images/digger.png",
+      "style": "deep tactical",
+      "signature": "Digger says",
+      "color": "#ce93d8",
+      "emoji": "⛏️",
+      "bio": "Tactical excavator. Digs deep into combinations and hidden patterns.",
+      "phrases": {
+        "brilliant": ["DEEP LINES. This move requires calculating 8+ moves ahead. Respect.", "The tactical shot that ends the game. Pure calculation dominance.", "Hidden resource unearthed. This is what deep analysis looks like."],
+        "best": ["Engine-approved. The sharpest continuation in this position.", "Tactical precision. No room for alternatives here.", "The forcing move that keeps everything on track."],
+        "good": ["Solid. Maintains the tactical tension without overreaching.", "A reasonable choice that doesn't blunder anything concrete.", "Keeps the complications alive. Good practical play."],
+        "inaccuracy": ["A tempo lost. Tactically, there was something sharper available.", "The tactical sequence has been slightly disrupted here.", "Not wrong, but the opportunity for something stronger was missed."],
+        "mistake": ["This move walks into a tactical problem.", "The opponent now has a concrete sequence to exploit.", "Pattern detected: this allows a tactical refutation."],
+        "blunder": ["TACTICAL CATASTROPHE. A forced sequence wins for the opponent.", "Walked into a combination. The position is now resignable.", "Classic blunder pattern. This decides the game immediately."]
+      }
+    },
+    {
+      "name": "Rj",
+      "logo": "assets/coach/images/rj.png",
+      "style": "aggressive attacking",
+      "signature": "Rj says",
+      "color": "#ef9a9a",
+      "emoji": "🔥",
+      "bio": "Attack! Attack! Attack! Rj believes the best defense is overwhelming offense.",
+      "phrases": {
+        "brilliant": ["FIRE MOVE. Pure aggression rewarded. The king has nowhere to hide!", "This is what ATTACKING chess looks like. Absolute weapon.", "No mercy. This move goes straight for the throat!"],
+        "best": ["Sharp and aggressive. Exactly the kind of chess I want to see!", "Attack maintained! The pressure never lets up!", "This keeps ALL the threats alive. Beautiful chaos!"],
+        "good": ["Okay move, keeps some attacking chances alive.", "Decent. Could be sharper but the attack continues.", "Fine. You're still in the game and pressing forward."],
+        "inaccuracy": ["You let them breathe! Should have kept the pressure on!", "A defensive move when you should have been attacking!", "Lost a beat. The attack lost some of its momentum here."],
+        "mistake": ["You gave them time to organize their defense. Big mistake.", "This allows the opponent to counterattack. NOT acceptable!", "The attack has stalled. This is how games are lost!"],
+        "blunder": ["DISASTER! The entire attack just collapsed!", "You handed them the game! How do you let this happen?!", "The king was RIGHT THERE and you walked away. Unbelievable!"]
+      }
+    },
+    {
+      "name": "Kim",
+      "logo": "assets/coach/images/kim.png",
+      "style": "balanced teaching",
+      "signature": "Kim says",
+      "color": "#a5d6a7",
+      "emoji": "📚",
+      "bio": "Balanced educator. Teaches principles, not just moves.",
+      "phrases": {
+        "brilliant": ["This demonstrates deep understanding of positional sacrifices.", "A move that combines tactics with long-term strategic vision.", "Excellent! This shows mastery of both calculation and intuition."],
+        "best": ["Principled play. You followed solid chess fundamentals here.", "The position called for this — and you delivered it.", "Well-reasoned move. Control, activity, and safety all balanced."],
+        "good": ["A reasonable continuation. You applied good chess principles.", "Solid choice. You kept the position manageable.", "Good move. You didn't create any unnecessary weaknesses."],
+        "inaccuracy": ["A small lesson here: the principle of piece activity suggests a better square existed.", "Not terrible, but let's examine what the position was asking for.", "A tiny drift from optimal. Worth reviewing the alternative."],
+        "mistake": ["This is a teaching moment. The position required a different approach.", "An instructive error. Let's understand WHY the engine prefers another move.", "This breaks a key principle. A good pattern to learn from."],
+        "blunder": ["A critical mistake. Let's use this as a lesson for future games.", "This shows why material count alone doesn't tell the whole story.", "An important learning moment. The position gave clear warning signs."]
+      }
+        }
+  ]
+        }
